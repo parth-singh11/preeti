@@ -282,7 +282,10 @@ musicBtn.addEventListener('click', () => {
         if (bgAudio.currentTime < 58) {
             bgAudio.currentTime = 58;
         }
-        bgAudio.play();
+        bgAudio.play().catch(error => {
+            console.log("Audio play failed:", error);
+            // Fallback: try interacting with user first or alert if needed
+        });
         musicBtn.textContent = 'Pause Music';
     } else {
         bgAudio.pause();
