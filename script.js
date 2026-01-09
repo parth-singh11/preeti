@@ -282,15 +282,24 @@ musicBtn.addEventListener('click', () => {
         if (bgAudio.currentTime < 58) {
             bgAudio.currentTime = 58;
         }
+        musicBtn.textContent = 'Loading...';
         bgAudio.play().catch(error => {
             console.log("Audio play failed:", error);
-            // Fallback: try interacting with user first or alert if needed
+            musicBtn.textContent = 'Play Music';
         });
-        musicBtn.textContent = 'Pause Music';
     } else {
         bgAudio.pause();
         musicBtn.textContent = 'Play Music';
     }
+});
+
+// Update button state based on actual audio events
+bgAudio.addEventListener('playing', () => {
+    musicBtn.textContent = 'Pause Music';
+});
+
+bgAudio.addEventListener('waiting', () => {
+    musicBtn.textContent = 'Buffering...';
 });
 
 // Custom loop behavior: Restart from 58s
