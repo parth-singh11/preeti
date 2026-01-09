@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎉 Happy Birthday Special Website 🎂</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Floating hearts/sparkles -->
+  <div class="float-wrap" id="floatWrap"></div>
+  <!-- Confetti canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <div class="container">
+
+    <header>
+      <div class="logo">🌹Happy Birthday <span style="color: rgb(252, 5, 137);">Preeti</span>🍷!</div>
+      <div class="controls">
+        <button id="musicBtn" class="btn">Play Music</button>
+        <button id="homeBtn" class="btn secondary">Home</button>
+      </div>
+    </header>
+
+    <div class="page-wrapper">
+
+      <!-- Balloon Game Page -->
+      <section id="gamePage" class="page">
+        <h2>🎮 Pop the Balloons — Pop 6 to continue!</h2>
+        <p class="muted">Click or tap the colorful balloons. Have fun!</p>
+        <div id="gameArea"></div>
+        <div style="display:flex;justify-content:center;gap:20px;align-items:center;margin-top:14px;">
+          <div id="score">Popped: 0 / 6</div>
+          <button id="restartBtn" class="btn">Restart</button>
+        </div>
+      </section>
+
+      <!-- Cake Page -->
+      <section id="cakePage" class="page hidden">
+        <h2>🎂 Make a Wish & Blow the Candle!</h2>
+        <p class="muted">Click the flame or blow gently on your mic.</p>
+        <div class="cake-wrap">
+          <img id="cakeImg" src="cake_before.jpg" alt="Birthday Cake" />
+          <div class="flame" id="flame" title="Click to blow candle">
+            <svg viewBox="0 0 64 96" width="48" height="80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+              focusable="false">
+              <path d="M32 0 C22 20 10 32 14 54 C18 80 32 96 32 96 C32 96 46 80 50 54 C54 32 42 20 32 0 Z"
+                fill="url(#g)" />
+              <defs>
+                <linearGradient id="g" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#ffd75a" />
+                  <stop offset="50%" stop-color="#ff8aa4" />
+                  <stop offset="100%" stop-color="#ff4da6" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;gap:14px;margin-top:20px;">
+          <button id="nextAfterCake" class="btn" disabled>Next</button>
+          <button id="micBtn" class="btn secondary">Use Mic</button>
+        </div>
+      </section>
+
+      <!-- Note Page -->
+      <section id="notePage" class="page hidden">
+        <h2>💌 A Special Note For You</h2>
+        <div class="message">
+          Sorry for being late as always—you know Date Yaad nhi rehti na! 🙈 But... Happy Birthday, Preeti! 🎂✨
+          May your day be as wonderful and fun as you are. Thank you for being the Preeti Mehta always: a little rude
+          and more pretty! 😜💖
+          Cheers to new memories, success, and lots of smiles ahead! 🥂💐 Have a fantastic celebration! 🥳🎉
+        </div>
+        <div style="text-align:center; margin-top: 20px;">
+          <button class="btn" onclick="nextPage('giftPage')">Open Gift</button>
+        </div>
+      </section>
+
+
+      <!-- Gift Page -->
+      <section id="giftPage" class="page hidden">
+        <h2>🎁 A Little Surprise!</h2>
+        <p class="muted">Tap the gift box to open it.</p>
+        <div class="gift-container">
+          <img src="gift_box.png" id="giftBox" class="gift-box" alt="Gift Box" />
+          <img src="surprise.jpg" id="surprisePhoto" class="surprise-photo" alt="Surprise!" />
+        </div>
+        <div style="text-align:center; margin-top: 20px;">
+          <button class="btn" onclick="showPage('gamePage')">Back to Start</button>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgAudio" src="song.mp3" loop></audio>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
